@@ -1,8 +1,7 @@
-# not a perfect version && only for part 1
-
-with open("2023/input.txt", "r") as f:
+with open("input.txt", "r") as f:
     lines = f.read().split("\n")
 
+# definitely NOT a perfect version, still dk how to improve it
 def goThroughRoute(lines, start_pos):
     cur_pos = start_pos
     direction = 0      
@@ -84,12 +83,20 @@ def goThroughRoute(lines, start_pos):
 
     return length
 
-start_pos = (0, 0)
-for i in range(len(lines)):
-    for j in range(len(lines[0])):
-        if lines[i][j] == "S":
-            start_pos = (i, j)
-            break
+def first_part():
+    start_pos = (0, 0)
+    for i in range(len(lines)):
+        for j in range(len(lines[0])):
+            if lines[i][j] == "S":
+                start_pos = (i, j)
+                break
 
-length = goThroughRoute(lines, start_pos)
-print(length // 2)
+    length = goThroughRoute(lines, start_pos)
+    print(length // 2)
+
+def second_part():
+    # NOT COMPLETED
+    print("NOT COMPLETED")
+
+first_part()
+second_part()

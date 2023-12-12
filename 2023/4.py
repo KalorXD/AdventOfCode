@@ -1,11 +1,11 @@
 from collections import defaultdict
 
-with open("2023/input.txt", "r") as f:
+with open("input.txt", "r") as f:
     lines = f.readlines()
 
-i = 0
 types = defaultdict(int)
-while i < len(lines):
+summ = 0
+for i in range(len(lines)):
     id = int(lines[i][4:lines[i].find(":")])
     types[i] += 1
     cards = lines[i][lines[i].find(":") + 2::].strip().split("|")
@@ -14,6 +14,8 @@ while i < len(lines):
     count = len(set(win_cards) & set(player_cards))
     for j in range(count):
         types[i + 1 + j] += types[i]
-    i += 1
+    if count > 0:
+        summ += 2 ** (count - 1)
 
+print(summ)
 print(sum(types.values()))

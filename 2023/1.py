@@ -1,8 +1,19 @@
+import re
+
 spelt_numbers = "one two three four five six seven eight nine 1 2 3 4 5 6 7 8 9".split()
 
-with open("2023/input.txt", "r") as new_file:
-    numbers = []
+with open("input.txt", "r") as new_file:
     lines = new_file.readlines()
+
+def first_part():
+    sum = 0
+    for line in lines:
+        cur_numbers = re.findall(r'\d', line)
+        sum += int(cur_numbers[0] + cur_numbers[-1])
+    print(sum)
+
+def second_part():
+    sum = 0
     for line in lines:
         cur_numbers = ['0', '0']
         for i in range(0, len(line)):
@@ -20,9 +31,8 @@ with open("2023/input.txt", "r") as new_file:
         for i in range(2):
             if not cur_numbers[i].isnumeric():
                 cur_numbers[i] = str(spelt_numbers.index(cur_numbers[i]) + 1)
-        numbers.append(int(cur_numbers[0] + cur_numbers[1]))
-    
-    sum = 0
-    for number in numbers:
-        sum += number
+        sum += int(cur_numbers[0] + cur_numbers[1])
     print(sum)
+
+first_part()
+second_part()
