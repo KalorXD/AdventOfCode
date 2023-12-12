@@ -10,4 +10,4 @@ for i in range(2, len(lines)):
     if lines[i] == "\n":
         inMap = False
     
-    
+# INCOMPLETE

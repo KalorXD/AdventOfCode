@@ -21,7 +21,6 @@ with open("2023/input.txt", "r") as new_file:
             if not cur_numbers[i].isnumeric():
                 cur_numbers[i] = str(spelt_numbers.index(cur_numbers[i]) + 1)
         numbers.append(int(cur_numbers[0] + cur_numbers[1]))
-        print(f'{len(numbers)}: {numbers[-1]}')
     
     sum = 0
     for number in numbers:

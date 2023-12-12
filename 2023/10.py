@@ -1,3 +1,5 @@
+# not a perfect version && only for part 1
+
 with open("2023/input.txt", "r") as f:
     lines = f.read().split("\n")
 
